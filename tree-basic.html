@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts树形图示例</title>
+    <!-- 引入ECharts库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.3.3/echarts.min.js"></script>
+    <style>
+        #chart {
+            width: 100%;
+            height: 100vh; /* 设置高度为视口高度 */
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            #chart {
+                height: 90vh; /* 在小屏幕上减少一些高度 */
+                left: 5%; /* 调整左边距 */
+                right: 5%; /* 调整右边距 */
+            }
+        }
+        @media (max-width: 480px) {
+            #chart {
+                height: 80vh; /* 更小屏幕上的高度 */
+                left: 10%; /* 进一步调整左边距 */
+                right: 10%; /* 进一步调整右边距 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 定义容器 -->
+    <div id="chart"></div>
+    <script>
+        // 初始化ECharts实例
+        var myChart = echarts.init(document.getElementById('chart'));
+
+        // 树形图数据
+        var data = {
+            name: '花粉过敏症状',
+            itemStyle: { color: '#e16c96' }, // 花粉过敏症状节点颜色
+            symbol: 'circle', // 花粉过敏症状节点形状
+            size: 50,
+            children: [
+                {
+                    name: '轻度花粉过敏',
+                    itemStyle: { color: '#DAF7A6' },
+                    children: [
+                        {
+                    name: '轻微的鼻部症状',
+                    itemStyle: { color: '#DAF7A6' },
+                    size: 100,
+                    children: [
+                        { name: '鼻痒' ,
+                          itemStyle: { color: '#DAF7A6' },
+                        },
+                        { name: '打喷嚏' ,
+                            itemStyle: { color: '#DAF7A6' },
+                        },
+                        { name: '流少量清涕',
+                            itemStyle: { color: '#DAF7A6' },
+                        }
+                    ]
+                },
+                        { name: '轻微的眼部症状',
+                          itemStyle: { color: '#DAF7A6' },
+                          children: [
+                        { name: '轻微的眼痒',
+                            itemStyle: { color: '#DAF7A6' },
+                         },
+                        { name: '流泪',
+                            itemStyle: { color: '#DAF7A6' },
+                         },]
+                    
+                        }
+                    ]
+                },
+                {
+                    name: '中度花粉过敏',
+                    itemStyle: { color: '#FFC300' },
+                    children: [
+                        
+                        { name: '鼻部症状加重' ,
+                          itemStyle: { color: '#FFC300' },
+                          children: [
+                         { name: '鼻塞',
+                            itemStyle: { color: '#FFC300' },
+                          },
+                         { name: '流大量清涕' ,
+                            itemStyle: { color: '#FFC300' },
+                         },
+                         { name: '频繁打喷嚏',
+                            itemStyle: { color: '#FFC300' },
+                         }
+                    ]
+
+                        },
+                        { name: '眼部症状更明显' ,
+                          itemStyle: { color: '#FFC300' },
+                          children: [
+                         { name: '眼痒',
+                            itemStyle: { color: '#FFC300' },
+                          },
+                         { name: '红肿' ,
+                            itemStyle: { color: '#FFC300' },
+                         },
+                         { name: '流泪增多',
+                            itemStyle: { color: '#FFC300' },
+                         }  
+                    ]
+                        },
+                        { name: '可能伴有皮肤症状' ,
+                          itemStyle: { color: '#FFC300' },
+                          children: [
+                         { name: '皮疹',
+                            itemStyle: { color: '#FFC300' },
+                          },
+                         { name: '瘙痒',
+                            itemStyle: { color: '#FFC300' },
+                          }
+                         
+                    ]
+                        }
+                    ]
+                },
+                {
+                    name: '重度花粉过敏',
+                    itemStyle: { color: '#FF5733' },
+                    children: [
+                        {
+                    name: '鼻部症状严重',
+                    itemStyle: { color: '#FF5733' },
+                    children: [
+                        { name: '持续性鼻塞',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '持续性流涕',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '持续性打喷嚏' ,
+                            itemStyle: { color: '#FF5733' },
+                        },
+                    ]
+                },
+                        { name: '眼部症状严重' ,
+                          itemStyle: { color: '#FF5733' },
+                         children: [
+                        { name: '眼结膜充血、水肿',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '视力受影响',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        
+                    ]
+                        },
+                        { name: '皮肤症状广泛', 
+                          itemStyle: { color: '#FF5733' },
+                        children: [
+                        { name: '出现大面积皮疹、瘙痒',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '甚至湿疹样改变',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                    ]
+
+                        },
+                        { name: '可能伴有下呼吸道症状',
+                          itemStyle: { color: '#FF5733' },
+                        children: [
+                        { name: '咳嗽',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '喘息',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '胸闷',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                        { name: '呼吸困难',
+                            itemStyle: { color: '#FF5733' },
+                        },
+                    ]
+                    
+                         }
+                    ]
+                }
+            ]
+        };
+
+        // 黄金分割率
+        const goldenRatio = 1.618;
+
+        // 树形图配置项
+        var option = {
+            tooltip: {
+                trigger: 'item'
+            },
+            series: [
+                {
+                    type: 'tree',
+                    data: [data],
+                    top: '1%',
+                    left: '10%',
+                    bottom: '1%',
+                    right: '10%',
+                    
+                    symbolSize: 7,
+                    label: {
+                        position: 'left',
+                        verticalAlign: 'middle',
+                        align: 'right',
+                        fontSize: 12, // 修改文字大小
+                        color: '#333', // 修改文字颜色
+                        
+                        distance: 10 // 调整文字距离节点的距离
+                    },
+                    leaves: {
+                        label: {
+                            position: 'right',
+                            verticalAlign: 'middle',
+                            align: 'left',
+                            fontSize: 12, // 修改叶子节点文字大小
+                            color: '#333', // 修改叶子节点文字颜色
+                
+                            distance: 10 // 调整文字距离节点的距离
+                        }
+                    },
+                    lineStyle: {
+                        curveness: 0.5 // 控制线条的弯曲程度
+                    },
+                    expandAndCollapse: true,
+                    animationDuration: 550,
+                    animationDurationUpdate: 750,
+
+                    // 自定义节点间的距离
+                    nodePadding: 20,
+                    initialTreeDepth: 3, // 显示所有层级
+                    layoutAnimation: true,
+
+                    levels: [
+                        {},
+                        {
+                            // 第一层级（根节点）
+                            itemStyle: {
+                                borderWidth: 2
+                            },
+                            lineStyle: {
+                                color: '#f00',
+                                width: 2
+                            }
+                        },
+                        {
+                            // 第二层级
+                            itemStyle: {
+                                borderWidth: 2
+                            },
+                            lineStyle: {
+                                color: '#0f0',
+                                width: 2
+                            },
+                            label: {
+                                distance: 0.5 * goldenRatio / 2 // 缩短距离
+                            }
+                        },
+                        {
+                            // 第三层级
+                            itemStyle: {
+                                borderWidth: 2
+                            },
+                            lineStyle: {
+                                color: '#00f',
+                                width: 2
+                            },
+                            label: {
+                                distance: 0.5 // 基础距离
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // 渲染树形图
+        function resizeChart() {
+            myChart.resize();
+        }
+
+        window.addEventListener('resize', resizeChart);
+
+        myChart.setOption(option);
+        resizeChart(); // 初始调用以确保正确渲染
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
