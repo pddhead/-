@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body style="height: 100%; margin: 0">
-  <div id="container" style="height: 100%"></div>
+<body style="height: 100%; margin: 0; display: flex; justify-content: center; align-items: center;">
+  <div id="container" style="width: 90%; height: 90vh;"></div>
 
   <script type="text/javascript" src="https://echarts.apache.org/zh/js/vendors/jquery@3.7.1/dist/jquery.min.js"></script>
   <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
@@ -107,7 +107,8 @@
               itemStyle: { color: '#FF5733' },
               collapsed: true, // 折叠子节点
               children: [
-                { name: '眼结膜充血、水肿', itemStyle: { color: '#FF5733' } },
+                { name: '眼结膜充血', itemStyle: { color: '#FF5733' } },
+                { name: '眼结膜水肿', itemStyle: { color: '#FF5733' } },
                 { name: '视力受影响', itemStyle: { color: '#FF5733' } },
               ]
             },
@@ -157,7 +158,8 @@
               right: '5%', // 减少右边距
               top: '15%', // 减少上边距
               bottom: '15%', // 减少下边距
-              symbolSize: 10, // 调整符号大小
+              symbolSize: 20, // 调整符号大小
+              nodeGap: 30, // 增加节点间距
               orient: 'vertical',
               expandAndCollapse: true,
               label: {
@@ -165,7 +167,7 @@
                 rotate: -90,
                 verticalAlign: 'middle',
                 align: 'right',
-                fontSize: 16 // 放大字体大小
+                fontSize: 14 // 放大字体大小
               },
               leaves: {
                 label: {
@@ -173,7 +175,7 @@
                   rotate: -90,
                   verticalAlign: 'middle',
                   align: 'left',
-                  fontSize: 16 // 放大字体大小
+                  fontSize: 14 // 放大字体大小
                 }
               },
               animationDurationUpdate: 750
@@ -194,7 +196,7 @@
         });
         myChart.setOption({
           series: [{
-            data: [data]
+           data: [data]
           }]
         });
       }
